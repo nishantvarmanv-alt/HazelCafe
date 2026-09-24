@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="theme-color" content="#0b0908">
+
+<title>Hazel Café | Digital Menu</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b0908;
+    color:#ffffff;
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --bg:#0b0908;
+    --bg2:#17120f;
+    --card:#1a1511;
+    --card2:#211a14;
+
+    /* HAZEL CAFÉ COLOURS */
+    --gold:#c89b6d;
+    --gold2:#e3bd93;
+
+    --white:#ffffff;
+    --muted:#b7c0cd;
+    --border:rgba(255,255,255,0.13);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(11,9,8,0.92);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+
+    min-height:74px;
+
+    padding:14px 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.brand{
+    text-decoration:none;
+    color:#fff;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.brand-small{
+    font-size:10px;
+    letter-spacing:4px;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    margin-bottom:4px;
+}
+
+.brand-name{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    font-weight:700;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+
+    gap:25px;
+}
+
+.nav a{
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    opacity:.85;
+}
+
+.nav a:hover{
+    color:var(--gold);
+}
+
+.contact-top{
+    border:1px solid var(--gold);
+
+    color:var(--gold) !important;
+
+    padding:10px 16px;
+
+    border-radius:30px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:650px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,8,14,.88),
+            rgba(5,8,14,.48),
+            rgba(5,8,14,.72)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+
+    display:flex;
+
+    align-items:center;
+}
+
+.hero-content{
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:90px 24px;
+}
+
+.hero-label{
+    color:var(--gold);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:5px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    max-width:800px;
+
+    font-family:Georgia,serif;
+
+    font-size:clamp(55px,8vw,105px);
+
+    line-height:.92;
+
+    letter-spacing:-4px;
+
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    display:block;
+}
+
+.hero-text{
+    max-width:620px;
+
+    color:#d6dbe2;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    margin-bottom:35px;
+}
+
+.hero-button{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:var(--gold);
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    padding:15px 25px;
+
+    border-radius:4px;
+
+    transition:.25s;
+}
+
+.hero-button:hover{
+    background:var(--gold2);
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   MENU INTRO
+========================================================= */
+
+.menu-section{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:100px 24px 70px;
+}
+
+.section-label{
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:14px;
+}
+
+.section-title{
+    font-family:Georgia,serif;
+
+    font-size:clamp(38px,5vw,62px);
+
+    line-height:1;
+
+    margin-bottom:18px;
+}
+
+.section-description{
+    color:var(--muted);
+
+    max-width:650px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   CATEGORY BUTTONS
+========================================================= */
+
+.categories{
+    margin-top:45px;
+
+    display:flex;
+
+    gap:10px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+    padding:5px 2px 15px;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category-btn{
+    flex:0 0 auto;
+
+    border:1px solid var(--border);
+
+    background:#18130f;
+
+    color:#fff;
+
+    padding:11px 18px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.category-btn:hover{
+    border-color:var(--gold);
+
+    color:var(--gold);
+}
+
+.category-btn.active{
+    background:var(--gold);
+
+    color:#111;
+
+    border-color:var(--gold);
+}
+
+
+/* =========================================================
+   MENU GRID
+========================================================= */
+
+.menu-grid{
+    margin-top:35px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+}
+
+
+/* =========================================================
+   MENU CARD
+========================================================= */
+
+.menu-card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.25);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+
+    min-width:0;
+}
+
+.menu-card:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(200,155,109,.45);
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.38);
+}
+
+.card-image{
+    width:100%;
+
+    height:260px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#202a39;
+}
+
+.card-image img{
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .5s ease;
+}
+
+.menu-card:hover .card-image img{
+    transform:scale(1.05);
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-category{
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+.card-title{
+    font-family:Georgia,serif;
+
+    font-size:28px;
+
+    line-height:1.05;
+
+    margin-bottom:12px;
+}
+
+.card-description{
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    min-height:45px;
+}
+
+.card-bottom{
+    margin-top:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+}
+
+.price{
+    color:var(--gold);
+
+    font-size:22px;
+
+    font-weight:800;
+}
+
+.view-btn{
+    background:transparent;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    color:#fff;
+
+    padding:10px 18px;
+
+    border-radius:5px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.view-btn:hover{
+    background:#fff;
+
+    color:#111;
+}
+
+
+/* =========================================================
+   SPECIAL SECTION
+========================================================= */
+
+.special-section{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:80px 24px;
+}
+
+.special-box{
+    min-height:400px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(5,8,14,.95),
+            rgba(5,8,14,.1)
+        ),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1600&q=85")
+        center/cover no-repeat;
+}
+
+.special-content{
+    padding:55px;
+
+    max-width:650px;
+}
+
+.special-content h2{
+    font-family:Georgia,serif;
+
+    font-size:clamp(38px,5vw,65px);
+
+    line-height:1;
+
+    margin-bottom:18px;
+}
+
+.special-content p{
+    color:#d4dae2;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    margin-top:40px;
+
+    background:#120e0b;
+
+    border-top:1px solid var(--border);
+}
+
+.footer-inner{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:70px 24px 25px;
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr;
+
+    gap:60px;
+}
+
+.footer-label{
+    color:var(--gold);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    margin-bottom:16px;
+}
+
+.footer-title{
+    font-family:Georgia,serif;
+
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.footer-text{
+    color:var(--muted);
+
+    line-height:1.7;
+
+    max-width:430px;
+}
+
+.footer-column h3{
+    font-family:Georgia,serif;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+}
+
+.footer-column p{
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+.phone-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:12px;
+}
+
+.phone-list a{
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:700;
+}
+
+.phone-list a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom{
+    max-width:1200px;
+
+    margin:auto;
+
+    border-top:1px solid var(--border);
+
+    padding:25px 24px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#87919f;
+
+    font-size:13px;
+}
+
+.powered{
+    color:#fff;
+}
+
+.powered strong{
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   MODAL / VIEW
+========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    z-index:2000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(900px,100%);
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    background:#15100d;
+
+    border:1px solid rgba(255,255,255,.14);
+
+    border-radius:22px;
+
+    position:relative;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.65);
+}
+
+.modal-image{
+    width:100%;
+
+    height:430px;
+
+    object-fit:cover;
+}
+
+.modal-content{
+    padding:32px;
+}
+
+.modal-category{
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+.modal-title{
+    font-family:Georgia,serif;
+
+    font-size:42px;
+
+    line-height:1.05;
+
+    margin-bottom:15px;
+}
+
+.modal-description{
+    color:var(--muted);
+
+    line-height:1.7;
+
+    font-size:15px;
+}
+
+.modal-price{
+    color:var(--gold);
+
+    font-size:26px;
+
+    font-weight:800;
+
+    margin-top:22px;
+}
+
+.modal-powered{
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#8993a0;
+
+    font-size:12px;
+}
+
+.modal-powered strong{
+    color:var(--gold);
+
+    font-size:14px;
+}
+
+.close-modal{
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.7);
+
+    color:#fff;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+    margin-top:35px;
+}
+
+.contact-label{
+    display:block;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:var(--gold);
+
+    margin-bottom:14px;
+}
+
+.contact-section h3{
+    margin:0 0 12px;
+
+    font-size:32px;
+}
+
+.contact-section p{
+    margin-bottom:22px;
+
+    color:#b8c1cf;
+
+    line-height:1.6;
+}
+
+.whatsapp-contacts{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.whatsapp-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:12px 18px;
+
+    border:1px solid rgba(255,255,255,0.14);
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,0.06);
+
+    color:#ffffff !important;
+
+    text-decoration:none !important;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:0.25s ease;
+}
+
+.whatsapp-btn:hover{
+    background:rgba(200,155,109,0.15);
+
+    border-color:rgba(200,155,109,0.5);
+
+    transform:translateY(-2px);
+}
+
+.wa-icon{
+    font-size:18px;
+}
+
+
+/* =========================================================
+   FLOATING MOBILE CONTACT
+========================================================= */
+
+.mobile-contact{
+    position:fixed;
+
+    right:18px;
+
+    bottom:18px;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:#fff;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-size:24px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+    z-index:1500;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:950px){
+
+    .menu-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-inner > :first-child{
+        grid-column:1/-1;
+    }
+
+    .hero{
+        min-height:580px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .whatsapp-contacts{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .whatsapp-btn{
+        width:100%;
+
+        box-sizing:border-box;
+
+        justify-content:flex-start;
+    }
+
+    .mobile-contact{
+        display:flex;
+    }
+
+
+    /* HEADER */
+
+    .header-inner{
+        min-height:68px;
+
+        padding:12px 20px;
+    }
+
+    .brand-small{
+        font-size:9px;
+
+        letter-spacing:3px;
+    }
+
+    .brand-name{
+        font-size:23px;
+    }
+
+    .nav{
+        gap:15px;
+    }
+
+    .nav a{
+        font-size:13px;
+    }
+
+    .contact-top{
+        padding:9px 14px;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        min-height:600px;
+
+        background-position:center;
+
+        align-items:flex-end;
+    }
+
+    .hero-content{
+        padding:65px 18px 55px;
+    }
+
+    .hero-label{
+        font-size:9px;
+
+        letter-spacing:3px;
+
+        margin-bottom:18px;
+    }
+
+    .hero h1{
+        font-size:54px;
+
+        letter-spacing:-2px;
+
+        line-height:.94;
+
+        margin-bottom:20px;
+    }
+
+    .hero-text{
+        font-size:14px;
+
+        line-height:1.6;
+
+        margin-bottom:25px;
+    }
+
+    .hero-button{
+        width:100%;
+
+        padding:14px;
+    }
+
+
+    /* MENU */
+
+    .menu-section{
+        padding:65px 15px 40px;
+    }
+
+    .section-label{
+        font-size:9px;
+
+        letter-spacing:3px;
+    }
+
+    .section-title{
+        font-size:40px;
+    }
+
+    .section-description{
+        font-size:14px;
+    }
+
+    .categories{
+        margin-top:30px;
+
+        gap:8px;
+
+        margin-left:-2px;
+
+        margin-right:-2px;
+    }
+
+    .category-btn{
+        padding:10px 15px;
+
+        font-size:12px;
+    }
+
+
+    /* GRID */
+
+    .menu-grid{
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+        margin-top:22px;
+    }
+
+
+    /* CARD */
+
+    .menu-card{
+        width:100%;
+
+        border-radius:18px;
+    }
+
+    .card-image{
+        height:230px;
+    }
+
+    .card-content{
+        padding:21px;
+    }
+
+    .card-category{
+        font-size:9px;
+
+        margin-bottom:9px;
+    }
+
+    .card-title{
+        font-size:27px;
+    }
+
+    .card-description{
+        font-size:13px;
+
+        min-height:auto;
+    }
+
+    .card-bottom{
+        margin-top:18px;
+    }
+
+    .price{
+        font-size:20px;
+    }
+
+
+    /* SPECIAL */
+
+    .special-section{
+        padding:45px 15px;
+    }
+
+    .special-box{
+        min-height:430px;
+
+        border-radius:18px;
+    }
+
+    .special-content{
+        padding:30px 23px;
+    }
+
+    .special-content h2{
+        font-size:42px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-inner{
+        grid-template-columns:1fr;
+
+        gap:38px;
+
+        padding:55px 20px 30px;
+    }
+
+    .footer-inner > :first-child{
+        grid-column:auto;
+    }
+
+    .footer-title{
+        font-size:32px;
+    }
+
+    .footer-column h3{
+        font-size:24px;
+    }
+
+    .footer-bottom{
+        padding:20px;
+
+        flex-direction:column;
+
+        gap:8px;
+
+        font-size:12px;
+    }
+
+
+    /* MODAL */
+
+    .modal{
+        padding:10px;
+
+        align-items:flex-end;
+    }
+
+    .modal-box{
+        width:100%;
+
+        max-height:94vh;
+
+        border-radius:20px 20px 0 0;
+    }
+
+    .modal-image{
+        height:250px;
+    }
+
+    .modal-content{
+        padding:24px 20px 28px;
+    }
+
+    .modal-title{
+        font-size:34px;
+    }
+
+    .modal-description{
+        font-size:14px;
+    }
+
+    .modal-powered{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .close-modal{
+        width:38px;
+
+        height:38px;
+
+        font-size:22px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .section-title{
+        font-size:35px;
+    }
+
+    .card-image{
+        height:210px;
+    }
+
+    .card-title{
+        font-size:24px;
+    }
+}
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+.image-error{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #172131,
+            #29384d
+        );
+
+    color:#c7ced8;
+
+    font-size:13px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <a href="#" class="brand">
+
+            <span class="brand-small">
+                HAZEL CAFÉ
+            </span>
+
+            <span class="brand-name">
+                Hazel
+            </span>
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="#menu">
+                Menu
+            </a>
+
+            <a href="#contact" class="contact-top">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            PREMIUM DIGITAL MENU
+        </div>
+
+        <h1>
+            Good food.
+            <span>Great cravings.</span>
+        </h1>
+
+        <p class="hero-text">
+            Discover delicious flavours, handcrafted favourites
+            and something special for every craving.
+        </p>
+
+        <a href="#menu" class="hero-button">
+            EXPLORE MENU
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     MENU
+======================================================= -->
+
+<section class="menu-section" id="menu">
+
+    <div class="section-label">
+        OUR MENU
+    </div>
+
+    <h2 class="section-title">
+        Choose your cravings
+    </h2>
+
+    <p class="section-description">
+        Fresh flavours, premium ingredients and something
+        delicious for everyone.
+    </p>
+
+
+    <!-- CATEGORY FILTER -->
+
+    <div class="categories">
+
+        <button class="category-btn active"
+                data-category="all">
+            All
+        </button>
+
+        <button class="category-btn"
+                data-category="burgers">
+            Burgers
+        </button>
+
+        <button class="category-btn"
+                data-category="pizza">
+            Pizza
+        </button>
+
+        <button class="category-btn"
+                data-category="pasta">
+            Pasta
+        </button>
+
+        <button class="category-btn"
+                data-category="starters">
+            Starters
+        </button>
+
+        <button class="category-btn"
+                data-category="drinks">
+            Drinks
+        </button>
+
+        <button class="category-btn"
+                data-category="desserts">
+            Desserts
+        </button>
+
+        <button class="category-btn"
+                data-category="specials">
+            Specials
+        </button>
+
+    </div>
+
+
+    <!-- MENU CARDS -->
+
+    <div class="menu-grid" id="menuGrid">
+
+
+        <!-- BURGER -->
+
+        <article class="menu-card"
+                 data-category="burgers">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=85"
+                    alt="Loaded Burger"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    BURGERS
+                </div>
+
+                <h3 class="card-title">
+                    Loaded Burger
+                </h3>
+
+                <p class="card-description">
+                    Juicy chicken, melted cheese, crisp lettuce
+                    and our signature house sauce.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹299
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Loaded Burger',
+                        'BURGERS',
+                        'Juicy chicken, melted cheese, crisp lettuce and our signature house sauce.',
+                        '₹299',
+                        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CLASSIC BURGER -->
+
+        <article class="menu-card"
+                 data-category="burgers">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=85"
+                    alt="Classic Chicken Burger"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    BURGERS
+                </div>
+
+                <h3 class="card-title">
+                    Classic Chicken Burger
+                </h3>
+
+                <p class="card-description">
+                    Crispy chicken, fresh vegetables and
+                    creamy signature sauce.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹249
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Classic Chicken Burger',
+                        'BURGERS',
+                        'Crispy chicken, fresh vegetables and creamy signature sauce.',
+                        '₹249',
+                        'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PIZZA -->
+
+        <article class="menu-card"
+                 data-category="pizza">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1200&q=85"
+                    alt="Special Pizza"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    PIZZA
+                </div>
+
+                <h3 class="card-title">
+                    Hazel cafes
+                     Special Pizza
+                </h3>
+
+                <p class="card-description">
+                    Signature pizza with chef-selected
+                    premium toppings.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹349
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Hazel cafes Special Pizza',
+                        'PIZZA',
+                        'Signature pizza with chef-selected premium toppings.',
+                        '₹349',
+                        'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PASTA -->
+
+        <article class="menu-card"
+                 data-category="pasta">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=1200&q=85"
+                    alt="Creamy Alfredo Pasta"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    PASTA
+                </div>
+
+                <h3 class="card-title">
+                    Creamy Alfredo Pasta
+                </h3>
+
+                <p class="card-description">
+                    Creamy white sauce pasta with herbs
+                    and parmesan.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹279
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Creamy Alfredo Pasta',
+                        'PASTA',
+                        'Creamy white sauce pasta with herbs and parmesan.',
+                        '₹279',
+                        'https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- LOADED SPECIAL PASTA -->
+
+        <article class="menu-card"
+                 data-category="specials">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=1200&q=85"
+                    alt="Loaded Special Pasta"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    SPECIALS
+                </div>
+
+                <h3 class="card-title">
+                    Loaded Special Pasta
+                </h3>
+
+                <p class="card-description">
+                    Rich creamy pasta loaded with
+                    chef-selected toppings.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹329
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Loaded Special Pasta',
+                        'SPECIALS',
+                        'Rich creamy pasta loaded with chef-selected toppings.',
+                        '₹329',
+                        'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STARTER -->
+
+        <article class="menu-card"
+                 data-category="starters">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=1200&q=85"
+                    alt="Crispy Chicken Bites"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    STARTERS
+                </div>
+
+                <h3 class="card-title">
+                    Crispy Chicken Bites
+                </h3>
+
+                <p class="card-description">
+                    Golden crispy chicken bites served
+                    with creamy dip.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹189
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Crispy Chicken Bites',
+                        'STARTERS',
+                        'Golden crispy chicken bites served with creamy dip.',
+                        '₹189',
+                        'https://images.unsplash.com/photo-1562967916-eb82221dfb92?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CAPPUCCINO -->
+
+        <article class="menu-card"
+                 data-category="drinks">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=85"
+                    alt="Classic Cappuccino"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    DRINKS
+                </div>
+
+                <h3 class="card-title">
+                    Classic Cappuccino
+                </h3>
+
+                <p class="card-description">
+                    Smooth espresso with creamy
+                    steamed milk.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹149
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Classic Cappuccino',
+                        'DRINKS',
+                        'Smooth espresso with creamy steamed milk.',
+                        '₹149',
+                        'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- DESSERT -->
+
+        <article class="menu-card"
+                 data-category="desserts">
+
+            <div class="card-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85"
+                    alt="Ultimate Chocolate Cake"
+                    onerror="imageFallback(this)"
+                >
+
+            </div>
+
+            <div class="card-content">
+
+                <div class="card-category">
+                    DESSERTS
+                </div>
+
+                <h3 class="card-title">
+                    Ultimate Chocolate Cake
+                </h3>
+
+                <p class="card-description">
+                    Soft chocolate cake with rich
+                    chocolate frosting.
+                </p>
+
+                <div class="card-bottom">
+
+                    <div class="price">
+                        ₹249
+                    </div>
+
+                    <button class="view-btn"
+                        onclick="openModal(
+                        'Ultimate Chocolate Cake',
+                        'DESSERTS',
+                        'Soft chocolate cake with rich chocolate frosting.',
+                        '₹249',
+                        'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=90'
+                        )">
+                        VIEW
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SPECIAL BANNER
+======================================================= -->
+
+<section class="special-section">
+
+    <div class="special-box">
+
+        <div class="special-content">
+
+            <div class="section-label">
+                HAZEL SPECIAL
+            </div>
+
+            <h2>
+                Something special
+                <br>
+                for every craving.
+            </h2>
+
+            <p>
+                Our signature favourites are made to make
+                every bite memorable.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER / CONTACT
+======================================================= -->
+
+<footer id="contact">
+
+    <div class="footer-inner">
+
+
+        <!-- ABOUT -->
+
+        <div>
+
+            <div class="footer-label">
+                DIGITAL MENU
+            </div>
+
+            <div class="footer-title">
+                Hazel
+            </div>
+
+            <p class="footer-text">
+                Premium digital menu experience for modern
+                cafés and restaurants.
+            </p>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div class="contact-section">
+
+            <span class="contact-label">
+                CONTACT
+            </span>
+
+            <h3>
+                Get in touch
+            </h3>
+
+            <p>
+                For Digital Menu enquiries, please contact us on WhatsApp.
+            </p>
+
+            <div class="whatsapp-contacts">
+
+                <a
+                    href="https://wa.me/919848499988"
+                    target="_blank"
+                    class="whatsapp-btn">
+
+                    <span class="wa-icon">
+                        💬
+                    </span>
+
+                    <span>
+                        98484 99988
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="https://wa.me/919392704656"
+                    target="_blank"
+                    class="whatsapp-btn">
+
+                    <span class="wa-icon">
+                        💬
+                    </span>
+
+                    <span>
+                        93927 04656
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NEXPV -->
+
+        <div class="footer-column">
+
+            <div class="footer-label">
+                DIGITAL MENU BY
+            </div>
+
+            <h3>
+                NexPV
+            </h3>
+
+            <p>
+                Digital • Creative • Technology
+            </p>
+
+            <p style="margin-top:10px;">
+                Smart digital solutions for modern
+                businesses.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <div>
+            © 2026 Hazel Café
+        </div>
+
+        <div class="powered">
+            Powered by
+            <strong>NexPV</strong>
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =======================================================
+     FLOATING MOBILE CONTACT
+======================================================= -->
+
+<a
+    class="mobile-contact"
+    href="tel:9848499988"
+    aria-label="Call Hazel Café">
+
+    ☎
+
+</a>
+
+
+
+<!-- =======================================================
+     VIEW MODAL
+======================================================= -->
+
+<div class="modal" id="itemModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal()">
+
+            ×
+
+        </button>
+
+
+        <img
+            id="modalImage"
+            class="modal-image"
+            src=""
+            alt=""
+        >
+
+
+        <div class="modal-content">
+
+            <div
+                id="modalCategory"
+                class="modal-category">
+            </div>
+
+            <h2
+                id="modalTitle"
+                class="modal-title">
+            </h2>
+
+            <p
+                id="modalDescription"
+                class="modal-description">
+            </p>
+
+            <div
+                id="modalPrice"
+                class="modal-price">
+            </div>
+
+
+            <!-- POWERED BY INSIDE VIEW -->
+
+            <div class="modal-powered">
+
+                <span>
+                    Digital Menu
+                </span>
+
+                <span>
+                    Powered by
+                    <strong>NexPV</strong>
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+const categoryButtons =
+    document.querySelectorAll(".category-btn");
+
+const menuCards =
+    document.querySelectorAll(".menu-card");
+
+
+categoryButtons.forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        const category =
+            this.getAttribute("data-category");
+
+
+        categoryButtons.forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+
+        menuCards.forEach(function(card){
+
+            const cardCategory =
+                card.getAttribute("data-category");
+
+
+            if(
+                category === "all" ||
+                cardCategory === category
+            ){
+
+                card.style.display = "block";
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+/* =========================================================
+   OPEN VIEW MODAL
+========================================================= */
+
+function openModal(
+    title,
+    category,
+    description,
+    price,
+    image
+){
+
+    document.getElementById("modalTitle")
+        .textContent = title;
+
+    document.getElementById("modalCategory")
+        .textContent = category;
+
+    document.getElementById("modalDescription")
+        .textContent = description;
+
+    document.getElementById("modalPrice")
+        .textContent = price;
+
+    document.getElementById("modalImage")
+        .src = image;
+
+    document.getElementById("modalImage")
+        .alt = title;
+
+
+    document.getElementById("itemModal")
+        .classList.add("show");
+
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+    document.getElementById("itemModal")
+        .classList.remove("show");
+
+    document.body.style.overflow = "";
+
+}
+
+
+
+/* =========================================================
+   CLOSE WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.getElementById("itemModal")
+.addEventListener("click", function(event){
+
+    if(event.target === this){
+
+        closeModal();
+
+    }
+
+});
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "Escape"){
+
+        closeModal();
+
+    }
+
+});
+
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+function imageFallback(img){
+
+    const parent =
+        img.parentElement;
+
+    img.style.display = "none";
+
+    parent.innerHTML =
+        '<div class="image-error">Food image unavailable</div>';
+
+}
+
+</script>
+
+
+</body>
+</html>
